@@ -22,4 +22,4 @@ Um sistema simples para criar curriculos
 - **`adicionarExperiencia()` / `adicionarExperienciaEsc()`**: Adicionam campos dinamicamente.  
 - **`salvarExp()` / `salvarEsc()`**: Salvam os dados nos arrays.
 ## Link da Página
-<a href="https://maysanazario.github.io/Gerador-de-Curr-culo-Online/" target="_blank">Clique Aqui!</a>
+<a href="https://maysanazario.github.io/CVBuilder/cadastrar.html" target="_blank">Clique Aqui!</a>
