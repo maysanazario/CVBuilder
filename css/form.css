@@ -1,0 +1,123 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0e3d3; /* Cor de fundo principal (#f0e3d3) */
+    color: #5a4a42; /* Cor do texto escuro para contraste */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.section {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #e5e6d8; /* Fundo do formulário (#e5e6d8) */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(207, 193, 180, 0.3);
+    border: 1px solid #cfc1b4; /* Borda sutil (#cfc1b4) */
+}
+
+h2 {
+    color: #8c6a56; /* Cor do título - tom médio harmonizado */
+    border-bottom: 2px solid #eacdc7; /* Linha decorativa (#eacdc7) */
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #7a5c4a; /* Cor dos labels */
+    font-weight: 500;
+    font-size: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cfc1b4; /* Borda dos inputs (#cfc1b4) */
+    border-radius: 8px;
+    background-color: #f9f5f0; /* Fundo dos inputs - tom mais claro */
+    color: #5a4a42;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+    outline: none;
+    border-color: #eacdc7; /* Cor da borda quando em foco (#eacdc7) */
+    box-shadow: 0 0 0 3px rgba(234, 205, 199, 0.2);
+    background-color: #fff;
+}
+
+.button-group {
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+button {
+    padding: 13px 22px;
+    background-color: #cfc1b4; /* Cor de fundo dos botões (#cfc1b4) */
+    color: #5a4a42;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+button:hover {
+    background-color: #b8a99b; /* Cor dos botões ao passar o mouse */
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#Criar-curriculo {
+    background-color: #d4b8a8; /* Cor diferenciada para o botão principal */
+    color: #fff;
+    font-weight: 600;
+    margin-top: 25px;
+    flex: 1 0 100%;
+}
+
+#Criar-curriculo:hover {
+    background-color: #c2a392;
+}
+
+.experiencias {
+    margin-top: 25px;
+    padding: 18px;
+    background-color: #f5f0e6;
+    border-radius: 8px;
+    border: 1px dashed #cfc1b4;
+}
+
+::placeholder {
+    color: #b8a99b; 
+    opacity: 1;
+    font-style: italic;
+}
+
+/* Efeitos adicionais para harmonia */
+.section {
+    transition: transform 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-3px);
+}

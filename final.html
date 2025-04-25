@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Currículo Profissional</title>
+    <style>
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #5a4a42; /* Cor do texto principal */
+            background-color: #f0e3d3; /* Cor de fundo (#f0e3d3) */
+            padding: 20px;
+        }
+        
+        /* Container principal para A4 */
+        #conteudo-para-png {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: #f9f5f0; /* Fundo do currículo */
+            box-shadow: 0 0 15px rgba(207, 193, 180, 0.3);
+            border: 1px solid #cfc1b4; /* Borda sutil (#cfc1b4) */
+        }
+        
+        /* Cabeçalho */
+        #dados-pessoais {
+            border-bottom: 2px solid #eacdc7; /* Linha divisória (#eacdc7) */
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        #dados-pessoais h1 {
+            color: #8c6a56; /* Cor do nome (#8c6a56 - tom médio harmonizado) */
+            font-size: 28pt;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .dados-contato {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .dado-contato {
+            font-size: 10.5pt;
+            display: flex;
+            align-items: center;
+            color: #7a5c4a; /* Cor dos dados de contato */
+        }
+        
+        .dado-contato strong {
+            margin-right: 8px;
+            color: #a78a76; /* Cor dos rótulos */
+            font-weight: 500;
+        }
+        
+        /* Seções */
+        section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            color: #a78a76; /* Cor dos títulos das seções (#a78a76) */
+            font-size: 18pt;
+            margin-bottom: 18px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #e5e6d8; /* Linha divisória (#e5e6d8) */
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        
+        /* Itens de experiência e formação */
+        .experiencia-item, .formacao-item {
+            margin-bottom: 22px;
+            page-break-inside: avoid;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            border-left: 4px solid #eacdc7; /* Destaque lateral (#eacdc7) */
+            box-shadow: 0 2px 5px rgba(207, 193, 180, 0.1);
+        }
+        
+        .experiencia-item h3, .formacao-item h3 {
+            color: #8c6a56; /* Cor dos títulos dos itens */
+            font-size: 14pt;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        
+        .item-periodo {
+            color: #b8a99b; /* Cor do período (#b8a99b) */
+            font-size: 10.5pt;
+            white-space: nowrap;
+            margin-left: 15px;
+            font-style: italic;
+        }
+        
+        .item-details {
+            margin-left: 5px;
+        }
+        
+        .item-details p {
+            margin-bottom: 6px;
+            font-size: 11pt;
+        }
+        
+        .item-details strong {
+            color: #a78a76; /* Cor dos rótulos internos */
+            font-weight: 500;
+        }
+        
+        .item-descricao {
+            margin-top: 10px;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #5a4a42;
+        }
+        
+        .item-descricao p {
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+        
+        /* Botão de gerar PNG */
+        #btn-gerar-png {
+            display: block;
+            background: #cfc1b4; /* Cor do botão (#cfc1b4) */
+            color: #5a4a42;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 30px auto;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        #btn-gerar-png:hover {
+            background: #b8a99b; /* Cor do botão ao passar o mouse */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        /* Estilos para impressão */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+                font-size: 11pt;
+            }
+            
+            #conteudo-para-png {
+                width: 100%;
+                min-height: 100%;
+                margin: 0;
+                padding: 15mm;
+                box-shadow: none;
+                border: none;
+                background: white;
+            }
+            
+            #btn-gerar-png {
+                display: none !important;
+            }
+            
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+            
+            section, .experiencia-item, .formacao-item {
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            .dados-contato {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .experiencia-item, .formacao-item {
+                box-shadow: none;
+                border-left: 2px solid #eacdc7;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="conteudo-para-png">
+        <section id="dados-pessoais">
+            <h1><span id="display-nome"></span></h1>
+            <div class="dados-contato">
+                <div class="dado-contato"><strong>Email:</strong> <span id="display-email"></span></div>
+                <div class="dado-contato"><strong>Telefone:</strong> <span id="display-telefone"></span></div>
+                <div class="dado-contato"><strong>Endereço:</strong> <span id="display-endereco"></span></div>
+                <div class="dado-contato"><strong>LinkedIn:</strong> <span id="display-linkedin"></span></div>
+            </div>
+        </section>
+        
+        <section id="experiencias-profissionais">
+            <h2>Experiências Profissionais</h2>
+            <div id="display-exp"></div>
+        </section>
+        
+        <section id="formacao-academica">
+            <h2>Formação Acadêmica</h2>
+            <div id="display-educ"></div>
+        </section>
+    </div>
+
+    <button id="btn-gerar-png">Gerar PNG</button>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resumeData = JSON.parse(localStorage.getItem('resumeData'));
+            
+            if (resumeData && resumeData.length > 0) {
+                const data = resumeData[0];
+                
+                // Exibir informações básicas
+                document.getElementById('display-nome').textContent = data.nome;
+                document.getElementById('display-email').textContent = data.email;
+                document.getElementById('display-telefone').textContent = data.telefone;
+                document.getElementById('display-endereco').textContent = data.endereco;
+                document.getElementById('display-linkedin').textContent = data.linkedin;
+                
+                // Exibir experiências profissionais
+                const expContainer = document.getElementById('display-exp');
+                data.exp_profissionais.forEach(exp => {
+                    const div = document.createElement('div');
+                    div.className = 'experiencia-item';
+                    div.innerHTML = `
+                        <div class="item-header">
+                            <h3>${exp.cargo || 'Experiência Profissional'}</h3>
+                            <span class="item-periodo">${formatarData(exp.dataInicio)} - ${exp.dataFim ? formatarData(exp.dataFim) : 'Atual'}</span>
+                        </div>
+                        <div class="item-details">
+                            <p><strong>Empresa:</strong> ${exp.empresa || 'Não especificado'}</p>
+                            <div class="item-descricao">${formatarDescricao(exp.texto)}</div>
+                        </div>
+                    `;
+                    expContainer.appendChild(div);
+                });
+                
+                // Exibir experiências educacionais
+                const educContainer = document.getElementById('display-educ');
+                data.exp_educacionais.forEach(educ => {
+                    const div = document.createElement('div');
+                    div.className = 'formacao-item';
+                    div.innerHTML = `
+                        <div class="item-header">
+                            <h3>${formatarNivelFormacao(educ.nivelFormacao)}</h3>
+                            <span class="item-periodo">${educ.anoConclusao || 'Em andamento'}</span>
+                        </div>
+                        <div class="item-details">
+                            <p><strong>Curso:</strong> ${educ.curso || 'Não especificado'}</p>
+                            <p><strong>Instituição:</strong> ${educ.instituicao || 'Não especificado'}</p>
+                        </div>
+                    `;
+                    educContainer.appendChild(div);
+                });
+            }
+
+            // Configurar o botão de gerar PNG
+            document.getElementById('btn-gerar-png').addEventListener('click', function() {
+                const element = document.getElementById('conteudo-para-png');
+                const nome = document.getElementById('display-nome').textContent || 'Curriculo';
+                
+                // Configurações do html2canvas
+                const options = {
+                    scale: 2,
+                    logging: false,
+                    useCORS: true,
+                    allowTaint: true,
+                    scrollX: 0,
+                    scrollY: 0,
+                    width: element.offsetWidth,
+                    windowWidth: element.scrollWidth,
+                    backgroundColor: '#f9f5f0' // Cor de fundo para a imagem
+                };
+                
+                setTimeout(() => {
+                    html2canvas(element, options).then(canvas => {
+                        const link = document.createElement('a');
+                        link.download = `${nome.replace(/\s+/g, '_')}.png`;
+                        link.href = canvas.toDataURL('image/png');
+                        link.click();
+                    });
+                }, 200);
+            });
+
+            function formatarNivelFormacao(nivel) {
+                const niveis = {
+                    'ensino_medio': 'Ensino Médio',
+                    'tecnico': 'Técnico',
+                    'graduacao': 'Graduação',
+                    'pos_graduacao': 'Pós-Graduação',
+                    'mestrado': 'Mestrado',
+                    'doutorado': 'Doutorado'
+                };
+                return niveis[nivel] || nivel;
+            }
+            
+            function formatarDescricao(texto) {
+                if (!texto) return '<p>Não especificado</p>';
+                return texto.split('\n').filter(para => para.trim() !== '').map(para => `<p>${para}</p>`).join('');
+            }
+            
+            function formatarData(data) {
+                if (!data) return '';
+                const partes = data.split('-');
+                if (partes.length === 3) {
+                    return `${partes[2]}/${partes[1]}/${partes[0]}`;
+                }
+                return data;
+            }
+        });
+    </script>
+</body>
+</html>
